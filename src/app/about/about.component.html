@@ -1,0 +1,49 @@
+<!--
+<div class="container">
+  <mat-card>
+    <h1>
+      <mat-card-title translate>APP_NAME</mat-card-title>
+    </h1>
+    <mat-card-content>
+      <mat-icon>code</mat-icon>
+      <span translate>Version</span> {{version}}
+    </mat-card-content>
+  </mat-card>
+-->
+  <div>
+   <app-tabs>
+     <app-tab title="Timers">
+        <app-timer  *ngFor="let timer of timers;" init="{{timer}}" (OnComplete)="showEndTimerAlert()"></app-timer>
+        <button class="add" (click)="showAddTimer()">+</button>
+      </app-tab>
+     <app-tab title="Crono">
+       Crono unavailable.
+     </app-tab>
+     <app-tab title="Alarm">
+       Alarm unavailable.
+     </app-tab>
+   </app-tabs>
+
+    <app-alert-view [hidden]="!isAddTimerVisible">
+      <div header>
+          Add New Timer
+        </div>
+      <label>Set the number of seconds for your timer</label>
+      <input [(ngModel)]="time" type="number" #timerInput>
+      <button (click)="hideAddTimer()" class="cancel-button">Cancel</button>
+      <button (click)="submitAddTimer()">OK</button>
+    </app-alert-view>
+
+  </div>
+  <ng-template #timeEndTemplate let-message let-title="title">
+    <app-simple-alert-view
+    [title]="title"
+    [message]="message"
+  ></app-simple-alert-view>
+  </ng-template>
+
+  <ng-container [ngTemplateOutlet]="timeEndTemplate"
+  [ngTemplateOutletContext]="{title:'Game over',$implicit:'timer ended'}"></ng-container>
+  <ng-container [ngTemplateOutlet]="timeEndTemplate"></ng-container>
+  <app-simple-alert-view></app-simple-alert-view>
+<!-- /div -->

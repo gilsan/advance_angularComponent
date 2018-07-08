@@ -1,0 +1,21 @@
+{
+  "generator-ngx-rocket": {
+    "version": "4.2.0",
+    "props": {
+      "location": "path",
+      "appName": "SJFTP",
+      "target": [
+        "web"
+      ],
+      "pwa": false,
+      "ui": "material",
+      "layout": "side-menu",
+      "auth": false,
+      "lazy": false,
+      "angulartics": false,
+      "projectName": "sjftp",
+      "packageManager": "npm",
+      "mobile": []
+    }
+  }
+}
